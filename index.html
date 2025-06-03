@@ -1,10 +1,227 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <title>Anh em mình cứ thế thôi</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danh Sách Profile Sinh Viên</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-size: 1.8em;
+            font-weight: bold;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: #2c3e50;
+            font-weight: 500;
+            padding: 10px 20px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            background: linear-gradient(45deg, transparent, transparent);
+            border: 2px solid transparent;
+        }
+
+        .nav-link:hover {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .welcome-section {
+            color: white;
+            margin-bottom: 50px;
+        }
+
+        .main-title {
+            font-size: 3em;
+            font-weight: bold;
+            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            margin-bottom: 15px;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .subtitle {
+            font-size: 1.2em;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+
+        .profiles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .profile-preview {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .profile-preview:nth-child(2) { animation-delay: 0.1s; }
+        .profile-preview:nth-child(3) { animation-delay: 0.2s; }
+        .profile-preview:nth-child(4) { animation-delay: 0.3s; }
+        .profile-preview:nth-child(5) { animation-delay: 0.4s; }
+
+        .profile-preview:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(102, 126, 234, 0.3);
+        }
+
+        .avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin: 0 auto 15px;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            color: white;
+            font-weight: bold;
+        }
+
+        .profile-preview:nth-child(1) .avatar { background: linear-gradient(45deg, #ff6b6b, #ff8e8e); }
+        .profile-preview:nth-child(2) .avatar { background: linear-gradient(45deg, #4ecdc4, #6dd5ed); }
+        .profile-preview:nth-child(3) .avatar { background: linear-gradient(45deg, #45b7d1, #96c93d); }
+        .profile-preview:nth-child(4) .avatar { background: linear-gradient(45deg, #feca57, #ff9ff3); }
+        .profile-preview:nth-child(5) .avatar { background: linear-gradient(45deg, #a8edea, #fed6e3); }
+
+        .preview-name {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+
+        .preview-major {
+            color: #7f8c8d;
+            font-size: 0.9em;
+            margin-bottom: 15px;
+        }
+
+        .view-btn {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            text-decoration: none;
+            padding: 10px 25px;
+            border-radius: 20px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .view-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .nav-links {
+                justify-content: center;
+            }
+
+            .main-title {
+                font-size: 2.2em;
+            }
+
+            .nav-link {
+                padding: 8px 15px;
+                font-size: 0.9em;
+            }
+        }
+    </style>
 </head>
 <body>
-    <h1>chưa có gì đâu khỏi xem</h1>
+<header class="header">
+    <div class="nav-container">
+        <div class="logo">Profiles</div>
+        <nav class="nav-links">
+            <a href="LeDucManh.html" class="nav-link" target="_blank">Lê Đức Mạnh</a>
+            <a href="NgoMinhDuc.html" class="nav-link" target="_blank">Ngô Minh Đức</a>
+            <a href="NguyenLeTrung.html" class="nav-link" target="_blank">Nguyễn Lê Trung</a>
+            <a href="NguyenVietHoang.html" class="nav-link" target="_blank">Nguyễn Việt Hoàng</a>
+            <a href="TranTungLam.html" class="nav-link" target="_blank">Trần Tùng Lâm</a>
+        </nav>
+    </div>
+</header>
+
+<main class="main-content">
+    <div class="welcome-section">
+        <h1 class="main-title">HELLO WORLD</h1>
+    </div>
+</main>
 </body>
 </html>
