@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,6 +16,7 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
+            justify-items: center;
         }
 
         .header {
@@ -25,6 +27,7 @@
             position: sticky;
             top: 0;
             z-index: 1000;
+            justify-items: center;
         }
 
         .nav-container {
@@ -41,9 +44,19 @@
             font-size: 1.8em;
             font-weight: bold;
             background: linear-gradient(45deg, #667eea, #764ba2);
+            background: linear-gradient(45deg, #FF6B6B, #4ECDC4);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+        }
+
+        .member {
+            border: 1px;
+            border-bottom: 2px solid #eb6e89;
+            border-radius: 20px;
+            display: grid;
+            justify-items: center;
+            font-size: 20pt;
         }
 
         .nav-links {
@@ -91,13 +104,27 @@
         }
 
         @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-30px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         @media (max-width: 768px) {
@@ -121,24 +148,54 @@
         }
     </style>
 </head>
-<body>
-<header class="header">
-    <div class="nav-container">
-        <div class="logo">Profiles</div>
-        <nav class="nav-links">
-            <a href="LeDucManh.html" class="nav-link" target="_blank">Lê Đức Mạnh</a>
-            <a href="NgoMinhDuc.html" class="nav-link" target="_blank">Ngô Minh Đức</a>
-            <a href="NguyenLeTrung.html" class="nav-link" target="_blank">Nguyễn Lê Trung</a>
-            <a href="NguyenVietHoang.html" class="nav-link" target="_blank">Nguyễn Việt Hoàng</a>
-            <a href="TranTungLam.html" class="nav-link" target="_blank">Trần Tùng Lâm</a>
-        </nav>
-    </div>
-</header>
 
-<main class="main-content">
-    <div class="welcome-section">
-        <h1 class="main-title">HELLO WORLD</h1>
-    </div>
-</main>
+<body>
+    <header class="header">
+        <h1>Thông tin giới thiệu nhóm 6</h1>
+    </header>
+
+    <main class="main-content">
+        <div class="welcome-section">
+            <h1 class="main-title">Danh sách thành viên</h1>
+            <div class="nav-container" style="border-top: 30px;">
+                <!-- <div class="logo">Profiles</div> -->
+                <nav class="nav-links">
+                    <div class="member">
+                        <a href="LeDucManh.html" class="nav-link" target="_blank"><b>Lê Đức Mạnh</b></a>
+                        <hr style="width: 100%; color: rgb(196, 196, 196);">
+                        <br>
+                        <img src="/img/manh.png" alt="Mạnh" style="height: 100px; border-radius: 8px;">
+                    </div>
+
+                    <div class="member">
+                        <a href="NgoMinhDuc.html" class="nav-link" target="_blank"><b>Ngô Minh Đức</b></a>
+                        <hr style="width: 100%; color: grey;">
+                        <br>
+                        <img src="/img/duc.png" alt="Đức" style="height: 100px; border-radius: 8px;">
+                    </div>
+
+                    <div class="member">
+                        <a href="NguyenLeTrung.html" class="nav-link" target="_blank"><b>Nguyễn Lê Trung</b></a>
+                        <hr style="width: 100%; color: grey;">
+                        <br>
+                        <img src="./img/trungimage.jpg" alt="Trung" style="height: 100px; border-radius: 8px;">
+                    </div>
+                    <div class="member">
+                        <a href="TranTungLam.html" class="nav-link" target="_blank"><b>Trần Tùng Lâm</b></a>
+                        <hr style="width: 100%; color: grey;">
+                        <br>
+                        <img src="./img/lam.jpeg" alt="lam" style="height: 100px; border-radius: 8px;">
+                    </div>
+                    <div class="member">
+                        <a href="NguyenVietHoang.html" class="nav-link" target="_blank"><b>Nguyễn Đức Huy</b></a>
+                        <hr style="width: 100%; color: grey;">
+                        <br>
+                        <img src="./img/viethoang.jpg" alt="hoang" style="height: 100px; border-radius: 8px;">
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </main>
 </body>
+
 </html>

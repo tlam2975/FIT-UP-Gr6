@@ -3,33 +3,105 @@
 
 <head>
     <meta charset="UTF-8">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap"
-        rel="stylesheet">
+        rel="stylesheet"> -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tung Lam 01</title>
 </head>
 <style>
+    body {
+        font-family: 'Times New Roman', Times, serif;
+    }
+
     header {
         background-color: #f38282;
         color: white;
         text-align: center;
         padding: 1em;
+        width: 100%;
+        position: sticky;
+    }
+
+    .name {
+        border-radius: 20px;
+        border: 1px solid black;
+        padding: 20px;
+        margin-top: 2%;
+        border-left: 4px solid #007bff;
+    }
+
+    .caption {
+        background: linear-gradient(to right, #ff6b6b, #4ecdc4);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        padding-left: 30px;
+    }
+
+    .habbits {
+        color: #3a222f;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    .hab {
+        background-color: #f0f0f0;
+        padding: 10px;
+        margin: 10px 0;
+        border-radius: 8px;
+        border-left: 1px solid #f38282;
     }
 </style>
 
 <body>
     <header>
-        <h1>Những điều cần biết về</h1>
+        <h1>Tìm hiểu về</h1>
         <h2>em Lâm</h2>
     </header>
     <div class="name">
-        <h1>Họ và tên</h1>
-        <h1>Trần Tùng Lâm</h1>
+        <h1 class="caption">Thông tin cơ bản</h1>
+        <img src="/img/lam.jpeg" alt="anh cua Lam" style="height: 100px; border-radius: 8px;">
+        <h3>Họ và tên: Trần Tùng Lâm</h3>
+        <h3>Ngày sinh: 29/07/2005</h3>
+        <h3>Quê quán: Hà Nội</h3>
+        <h3>Trường: THPT Đoàn Thị Điểm</h3>
+
+        <!-- <details>
+            <summary class="habbits">Sở thích</summary>
+                <li>Đi tập</li>
+                <li>Đi chơi với bạn bè</li>
+                <li>
+                    <details>
+                    <summary>Xem phim</summary>
+                    <h3>The Rookie</h3>
+                    <a href="https://www.netflix.com/vi/title/81666165?s=i&trkid=264293154&vlang=vi">netflix</a>
+                    </details>
+                </li>
+        </details> -->
+
+        <details>
+            <summary class="habbits">Sở thích</summary>
+            <div class="hab">
+                <h3>Chơi cầu lông</h3>
+            </div>
+            <div class="hab">
+                <h3>Đi tập</h3>
+            </div>
+            <div class="hab">
+                <details>
+                    <summary>Xem phim</summary>
+                    <h3>The Rookie</h3>
+                    <a href="https://www.netflix.com/vi/title/81666165?s=i&trkid=264293154&vlang=vi">Netflix</a>
+                </details>
+            </div>
+            <div class="hab">
+                <h3>Đi học FIT-UP</h3>
+            </div>
+        </details>
     </div>
-    <p>Quá thiếu chuyên nghiệp</p>
+
 </body>
 
 </html>
